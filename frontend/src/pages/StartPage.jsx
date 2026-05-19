@@ -128,11 +128,10 @@ function StartPage({ onStart }) {
             id="user-id"
             value={userId}
             onChange={(event) => setUserId(event.target.value.toUpperCase())}
-            placeholder="例如 U002"
             autoComplete="off"
           />
           <p className="input-hint">
-            僅輸入研究者提供的代號。
+            請輸入研究者提供的代號。
           </p>
           {error && <p className="error-message">{error}</p>}
           <button className="primary-button" type="submit" disabled={isStarting}>
