@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import TaskCard from '../components/TaskCard.jsx';
 import ProgressBar from '../components/ProgressBar.jsx';
 import { tasks } from '../data/tasks.js';
@@ -9,6 +9,18 @@ const emptyOpenState = {
   opened_features: false,
   opened_risk_warning: false,
   opened_verification_hint: false
+};
+
+const scrollToTaskTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  });
 };
 
 function ExperimentPage({ userId, onFinish }) {
@@ -78,12 +90,15 @@ function ExperimentPage({ userId, onFinish }) {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    scrollToTaskTop();
+  }, [taskIndex, currentTask.id]);
+
   useEffect(() => {
     if (!userId) {
       return;
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     taskStartTimeRef.current = Date.now();
     setDecision('');
     setReason('');
