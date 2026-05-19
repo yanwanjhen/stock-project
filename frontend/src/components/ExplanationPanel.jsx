@@ -7,19 +7,11 @@ const panelItems = [
     contentKey: 'explanation'
   },
   {
-    key: 'opened_features',
-    eventType: 'OPEN_FEATURES',
-    buttonLabel: '查看重要特徵',
-    title: '重要特徵',
-    contentKey: 'features'
-  },
-  {
     key: 'opened_risk_warning',
     eventType: 'OPEN_RISK_WARNING',
     buttonLabel: '查看風險提示',
     title: '風險提示',
-    contentKey: 'riskWarning',
-    tone: 'warning'
+    contentKey: 'riskWarning'
   },
   {
     key: 'opened_verification_hint',
@@ -40,10 +32,7 @@ function ExplanationPanel({ task, openedState, onOpenSection }) {
           const content = task[item.contentKey];
 
           return (
-            <div
-              className={`accordion-item ${item.tone === 'warning' ? 'warning-item' : ''}`}
-              key={item.key}
-            >
+            <div className="accordion-item" key={item.key}>
               <button
                 type="button"
                 className="accordion-button"

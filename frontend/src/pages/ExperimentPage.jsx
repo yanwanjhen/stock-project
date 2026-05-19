@@ -83,6 +83,7 @@ function ExperimentPage({ userId, onFinish }) {
       return;
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     taskStartTimeRef.current = Date.now();
     setDecision('');
     setReason('');
@@ -207,7 +208,7 @@ function ExperimentPage({ userId, onFinish }) {
           <div className="inactivity-reminder">
             <strong>作答提醒</strong>
             <p>
-              你可以依目前資訊做出判斷，若仍不確定，也可以選擇觀望或不採納 AI 建議。
+              你可以依目前資訊做出判斷，若仍不確定，也可以選擇觀望。
             </p>
           </div>
         </div>

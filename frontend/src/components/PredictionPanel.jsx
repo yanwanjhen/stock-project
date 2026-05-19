@@ -1,7 +1,7 @@
 function PredictionPanel({ task }) {
   return (
     <section className="prediction-panel">
-      <div>
+      <div className="prediction-main">
         <p className="section-label">AI 預測結果</p>
         <h3>{task.prediction}</h3>
         <p>

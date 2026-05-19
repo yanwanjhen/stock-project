@@ -385,21 +385,6 @@ h4 {
   color: #66758a;
 }
 
-.story-body {
-  display: grid;
-  gap: 12px;
-  border-radius: 8px;
-  padding: 22px;
-  color: #36465e;
-  background: #ffffff;
-}
-
-.story-body p {
-  margin-bottom: 0;
-  color: #36465e;
-  font-size: 1.05rem;
-}
-
 .role-goal-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -429,7 +414,7 @@ h4 {
 
 .market-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -480,6 +465,11 @@ h4 {
   background: #eff6ff;
 }
 
+.prediction-main {
+  display: grid;
+  gap: 12px;
+}
+
 .prediction-panel p {
   margin-bottom: 0;
   color: #30435f;
@@ -518,10 +508,6 @@ h4 {
   background: #ffffff;
 }
 
-.warning-item {
-  border-color: #f2b8a0;
-}
-
 .accordion-button {
   display: flex;
   width: 100%;
@@ -537,10 +523,6 @@ h4 {
   text-align: left;
 }
 
-.warning-item .accordion-button {
-  background: #fff7ed;
-}
-
 .accordion-icon {
   flex: 0 0 auto;
   border-radius: 999px;
@@ -553,11 +535,6 @@ h4 {
 .accordion-content {
   padding: 18px;
   color: #35465d;
-}
-
-.warning-item .accordion-content {
-  background: #fff7ed;
-  color: #7c2d12;
 }
 
 .accordion-content ul {

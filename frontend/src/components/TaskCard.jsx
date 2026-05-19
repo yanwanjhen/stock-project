@@ -14,6 +14,8 @@ function TaskCard({
   onSubmit,
   isSubmitting
 }) {
+  const visibleMarketKeys = ['currentPrice', 'maxDrawdown'];
+
   return (
     <article className="task-card">
       <section className="story-section">
@@ -24,15 +26,10 @@ function TaskCard({
             {task.stockName} <span>{task.stockCode}</span>
           </p>
         </div>
-        <div className="story-body">
-          {task.storyBackground.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
         <div className="role-goal-grid">
           <div>
             <span>你的角色</span>
-            <strong>{task.userRole}</strong>
+            <strong>{task.storyBackground[0] || task.userRole}</strong>
           </div>
           <div>
             <span>你的目標</span>
@@ -44,12 +41,12 @@ function TaskCard({
       <section className="market-section">
         <p className="section-label">市場資訊摘要</p>
         <div className="market-grid">
-          {Object.entries(task.marketInfo)
-            .filter(([key]) => key !== 'quantSignal')
-            .map(([key, value]) => (
+          {visibleMarketKeys
+            .filter((key) => task.marketInfo[key])
+            .map((key) => (
               <div className="market-item" key={key}>
                 <span>{marketLabels[key] || key}</span>
-                <strong>{value}</strong>
+                <strong>{task.marketInfo[key]}</strong>
               </div>
             ))}
         </div>
